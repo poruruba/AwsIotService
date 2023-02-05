@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-sampleaidl" version="0.0.1">
+    <name>SampleAidl</name>
+    <js-module src="www/plugin_sampleaidl.js" name="sampleaidl">
+        <clobbers target="sampleaidl" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SampleAidl" >
+                <param name="android-package" value="jp.or.sample.SampleAidl.Main"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <queries>
+                <package android:name="jp.or.myhome.sample.awsiotservice" />
+            </queries>
+        </config-file>
+        <source-file src="src/android/jp/or/sample/SampleAidl/Main.java" target-dir="src/jp/or/sample/SampleAidl" />
+        <source-file src="src/android/aidl/jp/or/myhome/sample/awsiotservice/IAwsIotService.aidl" target-dir="src/jp/or/myhome/sample/awsiotservice/" />
+        <source-file src="src/android/aidl/jp/or/myhome/sample/awsiotservice/IAwsIotServiceListener.aidl" target-dir="src/jp/or/myhome/sample/awsiotservice/" />
+    </platform>
+</plugin>
